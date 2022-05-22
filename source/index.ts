@@ -1,9 +1,23 @@
-import { type SemVer } from './types';
+import 'dotenv/config';
+
+import { createClient } from './client';
+import type { SemVer } from './types';
 
 const MIN_VERSION: SemVer = [16, 10, 0];
 
 async function main(): Promise<void> {
-  console.log('Hello World!');
+  const client = await createClient({
+    useGuildedSlashCommands: process.env.NODE_ENV === 'development',
+  });
+
+  if (!process.env.DISCORD_TOKEN) {
+    console.error(
+      'Please provide a Discord token in the environment variable DISCORD_TOKEN.'
+    );
+    process.exit(1);
+  }
+
+  await client.login(process.env.DISCORD_TOKEN);
 }
 
 if (require.main === module) {
