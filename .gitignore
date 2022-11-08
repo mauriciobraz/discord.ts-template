@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+.pnpm-debug.log*
+
+# typescript
+*.tsbuildinfo
+
+# .env
+.env.*
+!.env.template
