@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+
 import {
   Slash,
   SlashGroup,
@@ -167,9 +169,14 @@ function resolveSharedNameAndDescription(
 
 function getDefaultNameAndDescription(
   target: Record<string, unknown>,
-  key?: string
+  key?: string,
+  argumentIndex?: number
 ): BaseOptions {
-  const path = (target.constructor.name + (key ? '_' + key : '')).toUpperCase();
+  const path = (
+    target.constructor.name +
+    (key ? '_' + key : '') +
+    (argumentIndex ? '_OPTION_' + argumentIndex : '')
+  ).toUpperCase();
 
   return {
     name: `${path}_NAME` as ResolvableLocalizationPath,
@@ -220,12 +227,16 @@ export function Option(
   options: Partial<BaseOptions> & SlashOptionOptionsWithoutNamingFields
 ): ParameterDecoratorEx {
   return (target, key, descriptor) => {
-    if (!options) {
-      const { name, description } = getDefaultNameAndDescription(target, key);
+    if (!options.name || !options.description) {
+      const { name, description } = getDefaultNameAndDescription(
+        target,
+        key,
+        descriptor
+      );
 
       options = Object.assign(options, {
-        name,
-        description,
+        name: options.name || name,
+        description: options.description || description,
       });
     }
 
@@ -270,12 +281,16 @@ export function Group(
   options: Partial<BaseOptions> & SlashCommandGroupOptions
 ): ClassDecoratorEx {
   return (target, key, descriptor) => {
-    if (!options) {
-      const { name, description } = getDefaultNameAndDescription(target, key);
+    if (!options.name || !options.description) {
+      const TargetClass = target as new (...args: any[]) => any;
+
+      const { name, description } = getDefaultNameAndDescription(
+        new TargetClass()
+      );
 
       options = Object.assign(options, {
-        name,
-        description,
+        name: options.name || name,
+        description: options.description || description,
       });
     }
 
@@ -298,15 +313,17 @@ export function Group(
 
     if (options?.root) {
       SlashGroup(name, options.root);
-    } else SlashGroup(name);
-
-    if (options?.assignMethods) {
+    } else {
       SlashGroup({
         name,
         description,
         nameLocalizations,
         descriptionLocalizations,
       })(target, key, descriptor);
+    }
+
+    if (options?.assignMethods) {
+      SlashGroup(name)(target, key, descriptor);
     }
   };
 }

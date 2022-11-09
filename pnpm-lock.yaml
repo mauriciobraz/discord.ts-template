@@ -8,6 +8,7 @@ specifiers:
   lint-staged: ^13.0.3
   prettier: ^2.7.1
   prettier-plugin-packagejson: ^2.3.0
+  reflect-metadata: ^0.1.13
   resolve-tspaths: ^0.8.3
   ts-node-dev: ^2.0.0
   tsconfig-paths: ^4.1.0
@@ -28,6 +29,7 @@ devDependencies:
   lint-staged: 13.0.3
   prettier: 2.7.1
   prettier-plugin-packagejson: 2.3.0_prettier@2.7.1
+  reflect-metadata: 0.1.13
   resolve-tspaths: 0.8.3_typescript@4.8.4
   ts-node-dev: 2.0.0_cbe7ovvae6zqfnmtgctpgpys54
   tsconfig-paths: 4.1.0
@@ -938,6 +940,10 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+    dev: true
+
+  /reflect-metadata/0.1.13:
+    resolution: {integrity: sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==}
     dev: true
 
   /resolve-tspaths/0.8.3_typescript@4.8.4:

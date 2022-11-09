@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+
 import { Client } from 'discordx';
 import { resolve } from 'path';
 
