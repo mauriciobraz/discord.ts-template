@@ -1,11 +1,15 @@
 import { ChatInputCommandInteraction } from 'discord.js';
-import { Discord, Slash } from 'discordx';
+import { Discord } from 'discordx';
+
+import L from '@source/locales/i18n-node';
+import { Command, getPreferredLocale } from '@libraries/localization';
 
 @Discord()
 class Example {
-  @Slash({ name: 'ping', description: 'Ping Pong!' })
-  async ping(interaction: ChatInputCommandInteraction) {
-    await interaction.reply('Pong!');
+  @Command()
+  async example(interaction: ChatInputCommandInteraction) {
+    const LL = L[getPreferredLocale(interaction)];
+    await interaction.reply(LL.HI({ name: interaction.user.username }));
   }
 }
 
