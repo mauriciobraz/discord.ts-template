@@ -19,7 +19,7 @@ function loadEnv() {
     `.env.${process.env.NODE_ENV.toLowerCase()}`,
     '.env.local',
     '.env',
-  ].map(f => resolve(process.cwd(), f));
+  ].map((f) => resolve(process.cwd(), f));
 
   for (const envFile of possibleEnvFiles) {
     if (existsSync(envFile)) {

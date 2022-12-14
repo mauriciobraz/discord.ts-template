@@ -43,4 +43,4 @@ jobs:
         run: pnpm install
 
       - name: Run linter
-        run: pnpm run lint
+        run: pnpm run lint:check

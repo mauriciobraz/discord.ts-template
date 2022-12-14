@@ -3,7 +3,8 @@
   "scripts": {
     "build": "tsc && resolve-tspaths",
     "dev": "NODE_ENV=development ts-node-dev --respawn --transpile-only -r tsconfig-paths/register source/index.ts",
-    "lint": "prettier --write .",
+    "lint:check": "prettier --check .",
+    "lint:fix": "prettier --write .",
     "start": "NODE_ENV=production node build/index.js",
     "typesafe-i18n": "typesafe-i18n"
   },
