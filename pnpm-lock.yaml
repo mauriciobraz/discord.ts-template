@@ -11,6 +11,7 @@ specifiers:
   ts-node-dev: ^2.0.0
   tsconfig-paths: ^4.1.0
   tslib: ^2.4.1
+  tslog: ^4.4.4
   type-fest: ^3.2.0
   typesafe-i18n: ^5.16.3
   typescript: ^4.8.4
@@ -20,6 +21,7 @@ dependencies:
   discordx: 11.4.0_discord.js@14.6.0
   dotenv: 16.0.3
   tslib: 2.4.1
+  tslog: 4.4.4
   typesafe-i18n: 5.16.3_typescript@4.8.4
 
 devDependencies:
@@ -863,6 +865,11 @@ packages:
 
   /tslib/2.4.1:
     resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
+    dev: false
+
+  /tslog/4.4.4:
+    resolution: {integrity: sha512-+IJBVcB6h4BhMH3+IvB69lDZ/5ClHX40I66bGTKPAx+/S9nDqJCYN323MxR/gch3Agvrwif4HQorI/YLqAeoNA==}
+    engines: {node: '>=16'}
     dev: false
 
   /tsyringe/4.7.0:

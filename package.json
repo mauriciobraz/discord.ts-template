@@ -13,6 +13,7 @@
     "discordx": "^11.4.0",
     "dotenv": "^16.0.3",
     "tslib": "^2.4.1",
+    "tslog": "^4.4.4",
     "typesafe-i18n": "^5.16.3"
   },
   "devDependencies": {
