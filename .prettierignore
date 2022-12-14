@@ -1,0 +1,6 @@
+build/
+node_modules/
+source/locales/i18n-*.ts
+
+tsconfig.json
+pnpm-lock.yaml

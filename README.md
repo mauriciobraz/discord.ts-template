@@ -2,14 +2,6 @@
 
 This is a template for creating a Discord bot with localization support. It uses the following packages to achieve this: [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n), [discord.js](https://github.com/discordjs/discord.js) and [discordx](https://github.com/discordx-ts/discordx).
 
-<!-- - [Template for Discord.js w/ Localization](#template-for-discordjs-w-localization)
-  - [Getting Started](#getting-started)
-    - [Configuration](#configuration)
-    - [How Localization Works](#how-localization-works)
-      - [Translating Commands](#translating-commands)
-    - [Adding Commands](#adding-commands)
-  - [Docker Support](#docker-support) -->
-
 ## Getting Started
 
 Clone the repository and install the dependencies using [PnPM](https://pnpm.io/):
