@@ -1,5 +1,5 @@
-import { ArgsOf, Client, Discord, On } from 'discordx';
 import { Interaction } from 'discord.js';
+import { ArgsOf, Client, Discord, On } from 'discordx';
 
 import { logger, WithLogger } from '@libraries/logger';
 

@@ -5,7 +5,9 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv extends NodeJS.ProcessEnv {
       NODE_ENV: 'development' | 'production';
+
       DISCORD_TOKEN: string;
+      LOG_LEVEL: 1 | 2 | 3 | 4 | 5 | 6;
     }
   }
 }

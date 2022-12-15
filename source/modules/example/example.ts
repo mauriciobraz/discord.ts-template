@@ -1,9 +1,9 @@
-import { Discord } from 'discordx';
 import { ChatInputCommandInteraction } from 'discord.js';
+import { Discord } from 'discordx';
 
-import L from '@source/locales/i18n-node';
 import { Command, getPreferredLocale } from '@libraries/localization';
 import { WithLogger } from '@libraries/logger';
+import L from '@locales/i18n-node';
 
 @Discord()
 class Example {

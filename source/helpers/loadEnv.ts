@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
-import { resolve } from 'path';
 import { existsSync } from 'fs';
+import { resolve } from 'path';
 
 const isNodeEnvRegex = /^(development|production|test)$/i;
 

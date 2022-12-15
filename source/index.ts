@@ -3,8 +3,8 @@ import 'reflect-metadata';
 import { Client } from 'discordx';
 import { resolve } from 'path';
 
-import loadEnv from '@helpers/loadEnv';
 import importFolderRecursively from '@helpers/importFolderRecursively';
+import loadEnv from '@helpers/loadEnv';
 
 async function main() {
   await initializeClient();
