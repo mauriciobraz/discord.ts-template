@@ -5,8 +5,15 @@
     "dev": "NODE_ENV=development ts-node-dev --respawn --transpile-only -r tsconfig-paths/register source/index.ts",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
+    "prepare": "husky install",
     "start": "NODE_ENV=production node build/index.js",
     "typesafe-i18n": "typesafe-i18n"
+  },
+  "lint-staged": {
+    "**/*.(ts|js)": [
+      "bash -c 'pnpm tsc --noEmit'",
+      "pnpm lint:fix"
+    ]
   },
   "dependencies": {
     "discord.js": "^14.6.0",
@@ -17,6 +24,8 @@
     "typesafe-i18n": "^5.16.3"
   },
   "devDependencies": {
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
     "prettier": "^2.7.1",
     "prettier-plugin-packagejson": "^2.3.0",
     "reflect-metadata": "^0.1.13",
