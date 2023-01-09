@@ -3,8 +3,8 @@ import 'reflect-metadata';
 import { Client } from 'discordx';
 import { resolve } from 'path';
 
+import { DISCORD_TOKEN, NODE_ENV } from '@helpers/environmentVariables';
 import importFolderRecursively from '@helpers/importFolderRecursively';
-import loadEnv from '@helpers/loadEnv';
 
 async function main() {
   await initializeClient();
@@ -12,17 +12,13 @@ async function main() {
 
 /** @internal Initialize the client and login to Discord. */
 async function initializeClient() {
-  if (!process.env.DISCORD_TOKEN) {
-    throw new Error('DISCORD_TOKEN is not set');
-  }
-
   const client = new Client({
-    botGuilds: __DEV__ ? [getAllGuildsId] : undefined,
+    botGuilds: NODE_ENV === 'DEVELOPMENT' ? [getAllGuildsId] : undefined,
     intents: [],
   });
 
   await importFolderRecursively(resolve(__dirname, 'modules'));
-  await client.login(process.env.DISCORD_TOKEN);
+  await client.login(DISCORD_TOKEN);
 }
 
 /** @internal Get all guilds and returns their IDs. */
@@ -32,6 +28,5 @@ async function getAllGuildsId(client: Client) {
 }
 
 if (require.main === module) {
-  loadEnv();
   main();
 }

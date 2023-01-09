@@ -17,6 +17,7 @@ specifiers:
   type-fest: ^3.2.0
   typesafe-i18n: ^5.16.3
   typescript: ^4.8.4
+  zod: ^3.20.2
 
 dependencies:
   discord.js: 14.6.0
@@ -25,6 +26,7 @@ dependencies:
   tslib: 2.4.1
   tslog: 4.4.4
   typesafe-i18n: 5.16.3_typescript@4.8.4
+  zod: 3.20.2
 
 devDependencies:
   husky: 8.0.2
@@ -1384,3 +1386,7 @@ packages:
     resolution: {integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==}
     engines: {node: '>=6'}
     dev: true
+
+  /zod/3.20.2:
+    resolution: {integrity: sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==}
+    dev: false
