@@ -34,19 +34,21 @@ Don't forget to always use the [Discord's locales names](https://discord.com/dev
 
 #### Translating Commands
 
-There's a dedicated [namespace](https://github.com/ivanhofer/typesafe-i18n/tree/main/packages/generator#namespaces) for commands, so you can simply add the keys to his respective file.
+Since `typesafe-i18n` serves the translations as an object, you can use the `mergeTranslations` helper function to merge the translations with the default ones. This function is located in the [`@locales/localization`](source/locales/helpers.ts#L15) file.
+
+> If you want to use on the main file (eg. `en-US/index.ts`), you can use `*` as the namespace parameter, otherwise, you must use the namespace.
 
 ```ts
 // source/locales/$LANGUAGE/SLASH/index.ts
-import type { BaseTranslation } from '../../i18n-types';
+import { mergeTranslations } from '@locales/localization';
 
-export default {
+export default mergeTranslations('SLASH', {
   EXAMPLE_EXAMPLE_NAME: 'example',
   EXAMPLE_EXAMPLE_DESCRIPTION: 'This is useless example command.',
 
   PATH_TO_ANOTHER_NAME: 'another',
   PATH_TO_ANOTHER_DESCRIPTION: 'This is another useless example command.',
-} as BaseTranslation;
+});
 ```
 
 ### Adding Commands
