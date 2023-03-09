@@ -6,7 +6,7 @@ on:
 
 jobs:
   run-linter:
-    name: Run linter
+    name: Run Linter
     runs-on: ubuntu-latest
 
     steps:
@@ -23,8 +23,8 @@ jobs:
           node-version: 16
           cache: 'pnpm'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: pnpm install
 
-      - name: Run linter
-        run: pnpm run lint:check
+      - name: Run Linter
+        run: pnpm run lint

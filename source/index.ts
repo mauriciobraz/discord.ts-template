@@ -8,7 +8,7 @@ import { Client, DIService, typeDiDependencyRegistryEngine } from 'discordx';
 import { Logger } from 'tslog';
 import Container, { Service } from 'typedi';
 
-import DotenvSchema from '@schemas/dotenv';
+import DotenvSchema from '@/schemas/dotenv';
 
 async function main() {
   const logger = new Logger({

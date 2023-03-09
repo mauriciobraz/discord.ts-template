@@ -1,7 +1,7 @@
 import { Discord } from 'discordx';
 
-import { Command, getPreferredLocale } from '@libraries/localization';
-import L from '@locales/i18n-node';
+import { Command, getPreferredLocale } from '@/libraries/localization';
+import L from '@/locales/i18n-node';
 
 import type { ChatInputCommandInteraction } from 'discord.js';
 

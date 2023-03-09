@@ -1,4 +1,4 @@
-import { mergeTranslations } from '@locales/helpers';
+import { mergeTranslations } from '@/locales/helpers';
 
 export default mergeTranslations('SLASH', {
   EXAMPLE_NAME: 'exemplo-grupo',

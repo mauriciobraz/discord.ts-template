@@ -10,12 +10,13 @@ import {
   type SlashOptionOptions,
   type VerifyName,
 } from 'discordx';
-import type { Interaction, LocaleString, LocalizationMap } from 'discord.js';
-import type { LocalizedString } from 'typesafe-i18n';
 
 import L from '../locales/i18n-node';
 import { baseLocale, loadedLocales } from '../locales/i18n-util';
+
 import type { Locales, TranslationFunctions } from '../locales/i18n-types';
+import type { Interaction, LocaleString, LocalizationMap } from 'discord.js';
+import type { LocalizedString } from 'typesafe-i18n';
 
 /** @internal Replace all types from the given object deeply. */
 type DeepReplace<Obj, Type> = {
@@ -35,7 +36,7 @@ type ObjectPath<T> = T extends object
 
 /** @author https://github.com/sindresorhus/type-fest */
 type Join<
-  Strings extends Array<string | number>,
+  Strings extends (string | number)[],
   Delimiter extends string
 > = Strings extends []
   ? ''

@@ -1,5 +1,6 @@
-import type { Namespaces, Translation, Translations } from './i18n-types';
 import { baseLocale } from './i18n-util';
+
+import type { Namespaces, Translation, Translations } from './i18n-types';
 
 /** Union of all namespaces or the wildcard `*` to represent the root. */
 export type NamespaceOrRoot = Namespaces | '*';
