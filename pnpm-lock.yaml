@@ -15,6 +15,7 @@ specifiers:
   tslib: ^2.4.1
   tslog: ^4.4.4
   type-fest: ^3.2.0
+  typedi: ^0.10.0
   typesafe-i18n: ^5.16.3
   typescript: ^4.8.4
   zod: ^3.20.2
@@ -25,6 +26,7 @@ dependencies:
   dotenv: 16.0.3
   tslib: 2.4.1
   tslog: 4.4.4
+  typedi: 0.10.0
   typesafe-i18n: 5.16.3_typescript@4.8.4
   zod: 3.20.2
 
@@ -35,7 +37,7 @@ devDependencies:
   prettier-plugin-packagejson: 2.3.0_prettier@2.7.1
   reflect-metadata: 0.1.13
   resolve-tspaths: 0.8.3_typescript@4.8.4
-  ts-node-dev: 2.0.0_cbe7ovvae6zqfnmtgctpgpys54
+  ts-node-dev: 2.0.0_typescript@4.8.4
   tsconfig-paths: 4.1.0
   type-fest: 3.2.0
   typescript: 4.8.4
@@ -1190,7 +1192,7 @@ packages:
     resolution: {integrity: sha512-hvE+ZYXuINrx6Ei6D6hz+PTim0Uf++dYbK9FFifLNwQj+RwKquhQpn868yZsCtJYiclZF1u8l6WZxxKi+vv7Rg==}
     dev: false
 
-  /ts-node-dev/2.0.0_cbe7ovvae6zqfnmtgctpgpys54:
+  /ts-node-dev/2.0.0_typescript@4.8.4:
     resolution: {integrity: sha512-ywMrhCfH6M75yftYvrvNarLEY+SUXtUvU8/0Z6llrHQVBx12GiFk5sStF8UdfE/yfzk9IAq7O5EEbTQsxlBI8w==}
     engines: {node: '>=0.8.0'}
     hasBin: true
@@ -1209,7 +1211,7 @@ packages:
       rimraf: 2.7.1
       source-map-support: 0.5.21
       tree-kill: 1.2.2
-      ts-node: 10.9.1_cbe7ovvae6zqfnmtgctpgpys54
+      ts-node: 10.9.1_typescript@4.8.4
       tsconfig: 7.0.0
       typescript: 4.8.4
     transitivePeerDependencies:
@@ -1218,7 +1220,7 @@ packages:
       - '@types/node'
     dev: true
 
-  /ts-node/10.9.1_cbe7ovvae6zqfnmtgctpgpys54:
+  /ts-node/10.9.1_typescript@4.8.4:
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -1237,7 +1239,6 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
-      '@types/node': 18.11.9
       acorn: 8.8.1
       acorn-walk: 8.2.0
       arg: 4.1.3

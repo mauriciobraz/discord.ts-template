@@ -1,15 +1,18 @@
-import { Interaction } from 'discord.js';
-import { ArgsOf, Client, Discord, On } from 'discordx';
+import { Discord, On } from 'discordx';
+import { Logger } from 'tslog';
 
-import { logger, WithLogger } from '@libraries/logger';
+import type { Interaction } from 'discord.js';
+import type { ArgsOf, Client } from 'discordx';
 
 @Discord()
 class Controller {
+  constructor(private readonly logger: Logger<unknown>) {}
+
   @On({ event: 'ready' })
   async onReady(_: ArgsOf<'ready'>, client: Client) {
     await client.initApplicationCommands();
 
-    logger.info(
+    this.logger.info(
       'Successfully initialized application commands and started listening for events.'
     );
   }
@@ -19,8 +22,8 @@ class Controller {
     [interaction]: ArgsOf<'interactionCreate'>,
     client: Client
   ) {
-    // Inject a logger into the interaction object with some useful context.
-    (interaction as WithLogger<Interaction>).logger = logger.getSubLogger({
+    (interaction as Loggable<Interaction>).logger = this.logger.getSubLogger({
+      name: 'InteractionCreate',
       prefix: [interaction.id, interaction.user.id, interaction.guild?.id],
     });
 

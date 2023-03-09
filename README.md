@@ -14,10 +14,10 @@ pnpm install
 
 ### Configuration
 
-Clone the `.env.template` file and rename it to `.env.development.local`. Then, fill in the required fields:
+Clone the `.env.example` file and rename it to `.env.development.local`. Then, fill in the required fields:
 
 ```bash
-cp .env.template .env.development.local
+cp .env.example .env.development.local
 ```
 
 - `DISCORD_TOKEN`: Your Discord bot token (see [here](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot) for more information)
