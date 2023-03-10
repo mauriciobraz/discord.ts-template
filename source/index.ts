@@ -8,13 +8,13 @@ import { Client, DIService, typeDiDependencyRegistryEngine } from 'discordx';
 import { Logger } from 'tslog';
 import Container, { Service } from 'typedi';
 
-import DotenvSchema from '@/schemas/dotenv';
+import { DISCORD_TOKEN, LOG_LEVEL, NODE_ENV } from '@/schemas/dotenv';
 
 async function main() {
   const logger = new Logger({
     name: 'Main',
     prettyLogTemplate: '{{dateIsoStr}} {{logLevelName}}',
-    minLevel: process.env.LOG_LEVEL,
+    minLevel: LOG_LEVEL,
   });
 
   Container.set(Logger, logger);
@@ -27,13 +27,12 @@ const MODULES_PATH = resolve(__dirname, 'modules');
 /** @internal Initialize the client and login to Discord. */
 async function startDiscordClient() {
   const client = new Client({
-    botGuilds:
-      process.env.NODE_ENV === 'DEVELOPMENT' ? [getAllGuildsId] : undefined,
+    botGuilds: NODE_ENV === 'DEVELOPMENT' ? [getAllGuildsId] : undefined,
     intents: [],
   });
 
   await loadModules(MODULES_PATH);
-  await client.login(process.env.DISCORD_TOKEN);
+  await client.login(DISCORD_TOKEN);
 }
 
 /** @internal Get all guilds and returns their IDs. */
@@ -67,23 +66,6 @@ async function loadModules(path: string): Promise<void> {
 }
 
 if (require.main === module) {
-  // Parse environment variables and throw an error if any of them are invalid.
-  // Also, freeze the process.env object to prevent any changes to it.
-  process.env = Object.freeze({
-    ...process.env,
-    ...DotenvSchema.parse(process.env, {
-      errorMap: (issue) => {
-        console.log({
-          issue,
-        });
-
-        throw new Error(
-          `(${issue.code}) Invalid environment variable ${issue.path.join('.')}`
-        );
-      },
-    }),
-  } as NodeJS.ProcessEnv);
-
   // Provides TypeDI support for DiscordX. This is required for the `@Inject`
   // decorator to work (https://discordx.js.org/docs/discordx/basics/dependencyInjection/#configuration).
   DIService.engine = typeDiDependencyRegistryEngine

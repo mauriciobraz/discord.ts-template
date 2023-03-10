@@ -17,5 +17,9 @@ const DotenvSchema = z.object({
   DISCORD_TOKEN: DiscordToken,
 });
 
+export const { NODE_ENV, LOG_LEVEL, DISCORD_TOKEN } = DotenvSchema.parse(
+  process.env
+);
+
 export type Dotenv = z.infer<typeof DotenvSchema>;
 export default DotenvSchema;
