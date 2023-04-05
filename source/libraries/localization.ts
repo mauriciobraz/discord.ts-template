@@ -174,7 +174,7 @@ function getDefaultNameAndDescription(
   argumentIndex?: number
 ): BaseOptions {
   const path = (
-    target.constructor.name +
+    (target.name || target.constructor.name) +
     (key ? '_' + key : '') +
     (argumentIndex ? '_OPTION_' + argumentIndex : '')
   ).toUpperCase();
